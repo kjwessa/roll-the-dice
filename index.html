@@ -8,7 +8,29 @@
     <link rel="stylesheet" href="/styles/main.min.css" />
   </head>
   <body>
-    <header class="header"></header>
+    <main class="main">
+      <section class="player player__one">
+        <h2 class="player__name" id="name-1">Player 1</h2>
+        <p class="player__score" id="score-1">0</p>
+        <div class="current">
+          <p class="current__label">Current</p>
+          <p class="current__score" id="current-1">0</p>
+        </div>
+      </section>
+      <section class="player player__two">
+        <h2 class="player__name" id="name-2">Player 2</h2>
+        <p class="player__score" id="score-2">0</p>
+        <div class="current">
+          <p class="current__label">Current</p>
+          <p class="current__score" id="current-2">0</p>
+        </div>
+      </section>
+
+      <img src="/images/dice-1.png" alt="Playing dice" class="dice" />
+      <button class="btn btn__type_new">🔄 New game</button>
+      <button class="btn btn__type_roll">🎲 Roll dice</button>
+      <button class="btn btn__type_hold">📥 Hold</button>
+    </main>
     <script src="/index.js"></script>
   </body>
 </html>
