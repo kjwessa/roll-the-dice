@@ -150,4 +150,8 @@ body {
 }
 .btn__type_hold {
   top: 46.1rem;
+}
+
+.hidden {
+  display: none;
 }/*# sourceMappingURL=main.css.map */
