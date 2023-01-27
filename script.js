@@ -1,10 +1,14 @@
 "use strict";
 
-// * Player Variables
+// * Player/Game Variables
 const playerZeroName = document.getElementById("name-0");
 const playerOneName = document.getElementById("name-1");
 const playerZero = document.querySelector(".player__0");
 const playerOne = document.querySelector(".player__1");
+const playerZeroScoreTotal = document.getElementById("score-0");
+const playerOneScoreTotal = document.getElementById("score-1");
+const playerZeroScoreCurrent = document.getElementById("current-0");
+const playerOneScoreCurrent = document.getElementById("current-1");
 
 const playerScores = [0, 0];
 let currentScore = 0;
@@ -17,12 +21,36 @@ const btnRollDice = document.querySelector(".btn__type_roll");
 const btnHoldDice = document.querySelector(".btn__type_hold");
 const btnGameNew = document.querySelector(".btn__type_new");
 
-// * On Load
-document.getElementById("score-0").textContent = 0;
-document.getElementById("score-1").textContent = 0;
-gameDice.classList.add("hidden");
+// * Settings on Load/Reset
+function gameInit() {
+  gameDice.classList.add("hidden");
+  playerZeroScoreTotal.textContent = 0;
+  playerOneScoreTotal.textContent = 0;
+  playerZeroScoreCurrent.textContent = 0;
+  playerOneScoreCurrent.textContent = 0;
+  playerZero.classList.add("player__active");
+  playerOne.classList.remove("player__active");
+  playerZero.classList.remove("player__winner");
+  playerOne.classList.remove("player__winner");
+  currentScore = 0;
+  activePlayer = 0;
+  playing = true;
+}
 
-// * Dice/Button Functions
+// * Game Won!!!
+function playerWinsGame() {
+  playing = false;
+  document.querySelector(`.player__${activePlayer}`).classList.add("player__winner");
+  document.querySelector(`.player__${activePlayer}`).classList.remove("player__active");
+  gameDice.classList.add("hidden");
+}
+
+// * Game Reset
+function handleNewGame() {
+  gameInit();
+}
+
+// * Gameplay
 function switchPlayer() {
   document.getElementById(`current-${activePlayer}`).textContent = 0;
   currentScore = 0;
@@ -30,13 +58,6 @@ function switchPlayer() {
   activePlayer = activePlayer === 0 ? 1 : 0;
   playerZero.classList.toggle("player__active");
   playerOne.classList.toggle("player__active");
-}
-
-function playerWinsGame() {
-  playing = false;
-  document.querySelector(`.player__${activePlayer}`).classList.add("player__winner");
-  document.querySelector(`.player__${activePlayer}`).classList.remove("player__active");
-  gameDice.classList.add("hidden");
 }
 
 function handleRollDice() {
@@ -70,3 +91,6 @@ function handleHoldDice() {
 // * Button Event Listeners
 btnRollDice.addEventListener("click", handleRollDice);
 btnHoldDice.addEventListener("click", handleHoldDice);
+btnGameNew.addEventListener("click", handleNewGame);
+
+gameInit();
