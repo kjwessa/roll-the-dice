@@ -40,6 +40,7 @@ In future iterations, I want to...
 
 - (UX) Make the game mobile responsive (UX)
 - (UX) Remove the roll/hold dice buttons once the game is completed
+- (UI) Add a favicon
 - (Accessibility) Switch from PX to REM
 - (Brand) Create a game logo and favicon
 - (Fun) Allow users to change the default winning score of 100 to something else

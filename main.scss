@@ -3,11 +3,13 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
 
 html {
   font-size: 62.5%;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -16,9 +18,17 @@ body {
   font-weight: 400;
   height: 100vh;
   color: #333;
+  background-image: -webkit-gradient(linear, right bottom, left top, from(#753682), to(#bf2e34));
+  background-image: -o-linear-gradient(bottom right, #753682 0%, #bf2e34 100%);
   background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -28,20 +38,36 @@ body {
   width: 100rem;
   height: 60rem;
   background-color: rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(200px);
   backdrop-filter: blur(200px);
+  -webkit-filter: blur();
   filter: blur();
+  -webkit-box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
   border-radius: 9px;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 .player {
+  -webkit-box-flex: 50%;
+  -ms-flex: 50%;
   flex: 50%;
   padding: 9rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-transition: all 0.75s;
+  -o-transition: all 0.75s;
   transition: all 0.75s;
 
   &__name {
@@ -95,6 +121,8 @@ body {
   width: 65%;
   padding: 2rem;
   text-align: center;
+  -webkit-transition: all 0.75s;
+  -o-transition: all 0.75s;
   transition: all 0.75s;
 
   &__label {
@@ -113,8 +141,11 @@ body {
   position: absolute;
   left: 50%;
   top: 16.5rem;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   height: 10rem;
+  -webkit-box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
 }
 
@@ -122,6 +153,8 @@ body {
 .btn {
   position: absolute;
   left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   color: #444;
   background: none;
@@ -131,18 +164,25 @@ body {
   text-transform: uppercase;
   cursor: pointer;
   font-weight: 400;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
   transition: all 0.2s;
 
   background-color: white;
   background-color: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 
   padding: 0.7rem 2.5rem;
   border-radius: 50rem;
+  -webkit-box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
 
   &:active {
+    -webkit-transform: translate(-50%, 3px);
+    -ms-transform: translate(-50%, 3px);
     transform: translate(-50%, 3px);
+    -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
   }
 
