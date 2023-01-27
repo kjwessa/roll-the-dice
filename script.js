@@ -45,11 +45,6 @@ function playerWinsGame() {
   gameDice.classList.add("hidden");
 }
 
-// * Game Reset
-function handleNewGame() {
-  gameInit();
-}
-
 // * Gameplay
 function switchPlayer() {
   document.getElementById(`current-${activePlayer}`).textContent = 0;
@@ -80,7 +75,7 @@ function handleHoldDice() {
     playerScores[activePlayer] += currentScore;
     document.getElementById(`score-${activePlayer}`).textContent = playerScores[activePlayer];
 
-    if (playerScores[activePlayer] >= 10) {
+    if (playerScores[activePlayer] >= 100) {
       playerWinsGame();
     } else {
       switchPlayer();
@@ -91,6 +86,7 @@ function handleHoldDice() {
 // * Button Event Listeners
 btnRollDice.addEventListener("click", handleRollDice);
 btnHoldDice.addEventListener("click", handleHoldDice);
-btnGameNew.addEventListener("click", handleNewGame);
+btnGameNew.addEventListener("click", gameInit);
 
+// * Set the initial state of the game
 gameInit();
