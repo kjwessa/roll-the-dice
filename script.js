@@ -1,16 +1,16 @@
 "use strict";
 
 // * Player Variables
+const playerZero = document.querySelector(".player__zero");
+const playerOne = document.querySelector(".player__one");
+const playerZeroScoreTotal = document.getElementById("score-0");
 const playerOneScoreTotal = document.getElementById("score-1");
-const playerTwoScoreTotal = document.getElementById("score-2");
-const playerOneScoreCurrent = document.getElementById("current-1");
-const playerTwoScoreCurrent = document.getElementById("current-2");
+const playerZeroName = document.getElementById("name-0");
 const playerOneName = document.getElementById("name-1");
-const playerTwoName = document.getElementById("name-2");
-let currentPlayerOneScore = 0;
-let totalPlayerOneScore = 0;
-let currentPlayerTwoScore = 0;
-let totalPlayerTwoScore = 0;
+
+const playerScores = [0, 0];
+let currentScore = 0;
+let activePlayer = 0;
 
 // * Dice/Button Variables
 const gameDice = document.querySelector(".dice");
@@ -19,11 +19,9 @@ const btnHoldDice = document.querySelector(".btn__type_hold");
 const btnGameNew = document.querySelector(".btn__type_new");
 
 // * On Load
+playerZeroScoreTotal.textContent = 0;
 playerOneScoreTotal.textContent = 0;
-playerTwoScoreTotal.textContent = 0;
 gameDice.classList.add("hidden");
-
-// * Player Variables
 
 // * Dice/Button Functions
 function handleRollDice() {
@@ -33,9 +31,14 @@ function handleRollDice() {
   gameDice.src = `/images/dice-${currentRoll}.png`;
 
   if (currentRoll !== 1) {
-    // add dice to current score
+    currentScore += currentRoll;
+    document.getElementById(`current-${activePlayer}`).textContent = currentScore;
   } else {
-    //switch to next player
+    document.getElementById(`current-${activePlayer}`).textContent = 0;
+    currentScore = 0;
+    activePlayer = activePlayer === 0 ? 1 : 0;
+    playerZero.classList.toggle("player__active");
+    playerOne.classList.toggle("player__active");
   }
 }
 
